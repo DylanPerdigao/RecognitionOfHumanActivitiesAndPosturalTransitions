@@ -18,7 +18,7 @@ end
 %%  Representacao Grafica dos Dados
 %.....................................
 for k=1:numberOfFiles
-   f = figure(k);
+   f = figure('Name',strcat("Experiment n°",int2str(k)),'NumberTitle','off');
    % Ter uma figura mais larga
    f.Position = [100,100,1200,700];
    % Tracar o grafico
@@ -27,11 +27,11 @@ for k=1:numberOfFiles
        plot(data{1,k}(:,i))
        xlabel('Time (min)');
        if i==1
-           ylabel(strcat("ACC_X"));
+           ylabel("ACC_X");
        elseif i==2
-           ylabel(strcat("ACC_Y"));
+           ylabel("ACC_Y");
        else
-           ylabel(strcat("ACC_Z"));
+           ylabel("ACC_Z");
        end
    end
    % Escrever no grafico
