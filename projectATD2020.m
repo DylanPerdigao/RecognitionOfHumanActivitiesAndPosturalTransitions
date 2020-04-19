@@ -8,7 +8,7 @@ files = dir(PATH);
 numberOfFiles = length(files)-2;
 % O data vai ter uma coluna para cada ficherio
 data = cell(1,numberOfFiles);
-
+% Comecar em 3 para ignorar os ficheiros "." e ".."
 for k = 3:length(files)
 	file = files(k).name;
     % Cada coluna do data contem os dados do ficheiro
@@ -20,7 +20,7 @@ end
 for k=1:numberOfFiles
    f = figure(k);
    % Ter uma figura mais larga
-   f.Position = [100,100,1200,500];
+   f.Position = [100,100,1200,700];
    % Tracar o grafico
    for i=1:3
        subplot(3,1,i)
