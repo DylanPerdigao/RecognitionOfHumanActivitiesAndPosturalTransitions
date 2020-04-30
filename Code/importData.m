@@ -8,8 +8,7 @@ function data = importData()
     for k = 3:length(files)
         file = files(k).name;
         % Cada coluna do data contem uma estrutura com os dados do ficheiro
-        data{k-2}.data=double(importdata(strcat(PATH,file)));
+        data{k-2}.data = double(importdata(strcat(PATH,file)));
         data{k-2}.exp = k+38; %guarda nº da experiencia
         data{k-2}.user = k+17; %guarda nº user
-    end
-end
+    end 

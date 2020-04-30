@@ -7,6 +7,8 @@ function user_data = DFT(user_data)
     user_data.dfts_hann = cell(12,3);
     user_data.dfts_blackman = cell(12,3);
     user_data.dfts_gaussian = cell(12,3);
+    user_data.dfts_rect = cell(12,3);
+    user_data.dfts_triang = cell(12,3);
     for eixo = 1:3
         for at = 1:12
             indices = user_data.y == at;
@@ -26,6 +28,12 @@ function user_data = DFT(user_data)
             %gaussian
             janela_gaussian = gausswin(numel(atividade)).*atividade;
             user_data.dfts_gaussian{at, eixo} = fftshift(fft(janela_gaussian));
+            %rectangular
+            janela_rect = rectwin(numel(atividade)).*atividade;
+            user_data.dfts_rect{at, eixo} = fftshift(fft(janela_rect));
+            %triangular
+            janela_triang = triang(numel(atividade)).*atividade;
+            user_data.dfts_triang{at, eixo} = fftshift(fft(janela_triang));
         end
     end    
 end
