@@ -21,6 +21,7 @@ function represent_grafica(user_data, param)
        x = x./50; %Frequencia de 50Hz
        
        last = 1;
+       dt = detrend(toplot);
        for point = 2:length(toplot)
            if user_data.y(point) ~= user_data.y(point-1) || point == length(toplot)
                 plot(x(last:point), toplot(last:point,i),'Color', defineColor(user_data, point-1));

@@ -1,3 +1,5 @@
+% load data_users
+
 [avg_prevalent_freq, std_prevalent_freq] = calculate_prevalent_freq(data, fs);
 hold on;
 
@@ -24,22 +26,36 @@ std_other = sqrt(std_other/9);
 
 %% plot gaussians
 hold on;
-x = linspace(avg_din - 3*std_din, avg_din + 3*std_din, 100);
-y = normpdf(x, avg_din,  std_din);
-plot(x,y);
+x = linspace(-2, 3, 100);
 
-x = linspace(avg_other - 3*std_other, avg_other + 3*std_other, 100);
-y = normpdf(x, avg_other, std_other);
-plot(x,y);
+ydin = normpdf(x, avg_din,  std_din);
+plot(x,ydin);
+
+yother = normpdf(x, avg_other, std_other);
+plot(x,yother);
 
 
 title('Average prevalent frequency by activity type');
-legend('Dynamic', 'Others');
-hold off;
 
-%% do statistical test for separability
+%% create classification rule
+% rule is intersection between gaussian density functions, taken from the
+% plot, x = 1.2323
+% if prevalent frequency on X axis is greater than 1.2323, it's a dynamic
+% activity
+rule = 1.2323;
+xline(rule,'--');
+legend('Dynamic', 'Others', 'decision rule', 'Location', 'northwest');
 
-
-
-
-
+% TP = P(din > rule)
+% FN = P(din < rule)
+% FP = P(other > rule)
+% TN = P(other < rule)
+FN = normcdf(rule, avg_din, std_din);
+TP = 1 - FN;
+TN = normcdf(rule, avg_other, std_other);
+FP = 1 - TN;
+sens = TP/(TP+FN);
+spec = TN/(TN+FP);
+text(rule+0.1, 1.9, sprintf('x = %.4f', rule));
+text(-0.2, 1.9, sprintf('sensibility = %.1f%%', sens*100));
+text(-0.2, 1.7, sprintf('specificity = %.1f%%', spec*100));
