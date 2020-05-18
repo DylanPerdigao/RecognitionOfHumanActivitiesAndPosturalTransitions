@@ -37,6 +37,6 @@ h.YDisplayLabels(~show_y) = {''};
 xlabel("Tempo (s)");
 ylabel("Frequência (Hz)");
 colormap hot;
-title(sprintf("STFT do utilizador %d no eixo %c com %.1f%% de sobreposição e janela de tamanho %ds", user, char('X'+eixo-1), sobreposicao*100, janela/fs));
+title(sprintf("STFT da experiência %d no eixo %c com %.1f%% de sobreposição e janela de tamanho %ds", user + 40, char('X'+eixo-1), sobreposicao*100, janela/fs));
 
 

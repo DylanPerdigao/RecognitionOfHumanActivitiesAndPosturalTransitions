@@ -1,8 +1,9 @@
+load data_users
 user = 1;
 atividade = 12;
 eixo = 1;
 hold on
-sgtitle(sprintf("User: %d - Eixo: %c - Atividade: %d", user, char('X'+eixo-1), atividade));
+sgtitle(sprintf("Experiência: %d - Eixo: %c - Atividade: %d", user + 40, char('X'+eixo-1), atividade));
 subplot(3, 3, 1);
 represent_dft(data{user}.dfts{atividade,eixo}, fs, 'Simple', true);
 xlabel("Frequência (Hz)");
