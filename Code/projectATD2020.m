@@ -3,12 +3,12 @@
 %.....................................
 % clc
 % clear all;
-% fs = 50;
 % data = init();
-%  data = calculate_allDFTs(data);
-
-
-
-%%
-
-
+% Ex3;
+% Ex4;
+% Ex4_1;
+% Ex4_2;
+% Ex4_3;
+% Ex4_4;
+% Ex4_5;
+% Ex5;

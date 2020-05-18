@@ -7,7 +7,9 @@ for atividade = 1:3
     x = linspace(a(atividade,1),b(atividade,1),100);
     y = normpdf(x, avg_steps(atividade,1), std_steps(atividade,1));
     plot(x,y);
-    title('Steps per activity');
+    title('Normal Distribution of Steps per activity');
+    xlabel("Number of steps");
+    ylabel("Probability Density");
 end
 legend('Walking', 'Walking Upstairs', 'Walking Downstairs');
 hold off;

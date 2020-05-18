@@ -3,6 +3,8 @@ function data = init()
         data = importData();
         data = importLabels(data);
         data = activity(data);
+        data = calculate_allDFTs(data);
+        fs = 50;
         save data_users
     else
         load('data_users.mat','data'); 

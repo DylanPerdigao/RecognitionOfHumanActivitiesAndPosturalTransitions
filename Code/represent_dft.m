@@ -1,5 +1,4 @@
 function represent_dft(atividade, fs, txt, onlyHalf)
-    figure();
     f = linspace(-fs/2, fs/2, numel(atividade));
     
     if nargin > 3 && onlyHalf == true

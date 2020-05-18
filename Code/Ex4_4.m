@@ -1,4 +1,4 @@
-% load data_users
+%load data_users
 
 [avg_prevalent_freq, std_prevalent_freq] = calculate_prevalent_freq(data, fs);
 hold on;
@@ -26,7 +26,7 @@ std_trans = sqrt(std_trans/6);
 
 %% plot gaussians
 hold on;
-x = linspace(-0.5, 1.25, 100);
+x = linspace(-0.4, 1, 100);
 
 ystatic = normpdf(x, avg_static,  std_static);
 plot(x,ystatic);
@@ -35,14 +35,14 @@ ytrans = normpdf(x, avg_trans, std_trans);
 plot(x,ytrans);
 
 
-title('Average prevalent frequency by activity type');
+title('Average prevalent frequency by activity type on Z axis');
 
 %% create classification rule
 % rule is intersection between gaussian density functions, taken from the
-% plot, x = 0.118
+% plot, x = 0.117
 % if prevalent frequency on X axis is greater than 0.118, it's a transition
 % activity
-rule = 0.118;
+rule = 0.117;
 xline(rule,'--');
 legend('Static', 'Transitions', 'decision rule', 'Location', 'northwest');
 

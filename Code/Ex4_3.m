@@ -1,4 +1,4 @@
-% load data_users
+%load data_users
 
 [avg_prevalent_freq, std_prevalent_freq] = calculate_prevalent_freq(data, fs);
 hold on;
@@ -35,7 +35,7 @@ yother = normpdf(x, avg_other, std_other);
 plot(x,yother);
 
 
-title('Average prevalent frequency by activity type');
+title('Average prevalent frequency by activity type on X axis');
 
 %% create classification rule
 % rule is intersection between gaussian density functions, taken from the
@@ -56,6 +56,6 @@ TN = normcdf(rule, avg_other, std_other);
 FP = 1 - TN;
 sens = TP/(TP+FN);
 spec = TN/(TN+FP);
-text(rule+0.1, 1.9, sprintf('x = %.4f', rule));
+text(rule, 1.9, sprintf('x = %.4f', rule));
 text(-0.2, 1.9, sprintf('sensibility = %.1f%%', sens*100));
-text(-0.2, 1.7, sprintf('specificity = %.1f%%', spec*100));
+text(-0.2, 1.8, sprintf('specificity = %.1f%%', spec*100));
