@@ -1,6 +1,6 @@
 # RecognitionOfHumanActivitiesAndPosturalTransitions
-Data analysis in the domains of time and frequency, using signals collected from mobile phone accelerometers in order to classify/identify the activity performed, corresponding to 12 different movements.
-The activities are:
+Data analysis in the domains of time and frequency, using signals collected from mobile phone accelerometers in order to classify/identify the activity performed, corresponding to 12 different movements, namely:
+
 - Dynamic
   ```
   WALKING
